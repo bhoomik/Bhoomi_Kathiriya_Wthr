@@ -89,7 +89,7 @@ public class AddLocationVM
     {
         
         print("location id to be compared is",id)
-        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "locationid = %@", id)
         
         var results: [NSManagedObject] = []
@@ -110,7 +110,7 @@ public class AddLocationVM
     {
         
         print("location id to be compared is",id)
-        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "city = %@", id)
         
         var results: [NSManagedObject] = []
@@ -131,7 +131,7 @@ public class AddLocationVM
     {
         
         print("location id to be compared is",id)
-        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "country = %@", id)
         
         var results: [NSManagedObject] = []

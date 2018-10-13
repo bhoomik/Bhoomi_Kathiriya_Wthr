@@ -13,7 +13,6 @@
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
                 <navigationController title="Master" navigationBarHidden="YES" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,6 +21,7 @@
                         <segue destination="6l2-Ln-HsE" kind="relationship" relationship="rootViewController" id="s9L-Vd-TYy"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-290" y="-638"/>
         </scene>
@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="tblLocationList" destination="7RB-ZP-CfQ" id="ACu-gb-nIF"/>
                         <segue destination="5YP-Aj-urW" kind="show" identifier="LocationListToaddLocation" id="5PP-5u-KPr"/>
+                        <segue destination="V19-2w-Ceh" kind="show" identifier="LocationListToWeatherDetail" id="3Fx-dE-ATH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v55-FZ-L0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,6 +221,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewa-Ef-s13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1346.4000000000001" y="-545.57721139430294"/>
+        </scene>
+        <!--Weather DetailVC-->
+        <scene sceneID="PM7-um-7PP">
+            <objects>
+                <viewController id="V19-2w-Ceh" customClass="WeatherDetailVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cSZ-pI-U3u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-Pr-UXV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <color key="backgroundColor" red="0.9258366227" green="0.90086847540000003" blue="0.86697268490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwl-9g-s3t" userLabel="NavBar">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuz-D9-xb0">
+                                        <rect key="frame" x="15" y="12" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="POA-Zq-kXk"/>
+                                            <constraint firstAttribute="width" constant="20" id="qpo-Ym-cjh"/>
+                                        </constraints>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" image="back.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBackAction" destination="5YP-Aj-urW" eventType="touchUpInside" id="Cn4-MO-847"/>
+                                            <action selector="btnBackAction" destination="V19-2w-Ceh" eventType="touchUpInside" id="MKt-Hi-tE0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nN-bp-cJk">
+                                        <rect key="frame" x="335" y="10" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="9O7-1f-fAd"/>
+                                            <constraint firstAttribute="width" constant="25" id="vNc-Sa-RIQ"/>
+                                        </constraints>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" image="\">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAddLocationAction" destination="6l2-Ln-HsE" eventType="touchUpInside" id="rAC-yZ-1lN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5nN-bp-cJk" secondAttribute="trailing" constant="15" id="7VS-v8-PZl"/>
+                                    <constraint firstItem="tuz-D9-xb0" firstAttribute="leading" secondItem="zwl-9g-s3t" secondAttribute="leading" constant="15" id="IuE-Z6-RDp"/>
+                                    <constraint firstAttribute="height" constant="44" id="ayk-oF-I8h"/>
+                                    <constraint firstItem="tuz-D9-xb0" firstAttribute="centerY" secondItem="zwl-9g-s3t" secondAttribute="centerY" id="bHd-a7-cUI"/>
+                                    <constraint firstItem="5nN-bp-cJk" firstAttribute="centerY" secondItem="zwl-9g-s3t" secondAttribute="centerY" id="gzG-U3-Oht"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S3Q-Pr-UXV" firstAttribute="leading" secondItem="cSZ-pI-U3u" secondAttribute="leading" id="4uT-34-mMF"/>
+                            <constraint firstItem="zwl-9g-s3t" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" id="FlW-rC-4Pd"/>
+                            <constraint firstItem="zwl-9g-s3t" firstAttribute="bottom" secondItem="S3Q-Pr-UXV" secondAttribute="bottom" id="Z26-vx-QFN"/>
+                            <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="zwl-9g-s3t" secondAttribute="trailing" id="ggP-N2-frb"/>
+                            <constraint firstItem="zwl-9g-s3t" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" id="gqw-lF-3Ih"/>
+                            <constraint firstAttribute="trailing" secondItem="S3Q-Pr-UXV" secondAttribute="trailing" id="hgT-H4-KHw"/>
+                            <constraint firstItem="S3Q-Pr-UXV" firstAttribute="top" secondItem="cSZ-pI-U3u" secondAttribute="top" id="lmR-NO-SAE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QLC-xW-nsF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iq-qL-gvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2177" y="-546"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

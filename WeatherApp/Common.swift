@@ -11,7 +11,8 @@ import UIKit
 let customOrangeColor = UIColor(red: 227.0/255.0, green: 119.0/255.0, blue: 30.0/255.0, alpha: 1.0)
 
 
-
+let kBaseURL = "http://api.openweathermap.org/data/2.5/weather"
+let kAPIKey =  "c6e381d8c7ff98f0fee43775817cf6ad"
 struct ScreenSize
 {
     static let SCREEN_WIDTH = UIScreen.main.bounds.size.width

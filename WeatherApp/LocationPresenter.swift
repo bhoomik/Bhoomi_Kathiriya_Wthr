@@ -6,13 +6,13 @@
 
 import Foundation
 
-class NewsPresenter {
+class LocationPresenter {
 	
-	private let newsService: NewsService
+	private let locationService: LocationService
 	weak private var locationView: LocationView?
 	
-   init(newsService: NewsService) {
-		self.newsService = newsService
+   init(locationService : LocationService) {
+		self.locationService = locationService
 	}
 	
 	func attachView(view: LocationView) {
@@ -27,7 +27,7 @@ class NewsPresenter {
 	
 	
 	
-   /* func getNewsData() {
+    func getLocationData(objLocation : Location) {
         
         
             
@@ -35,10 +35,10 @@ class NewsPresenter {
         if(Helper.sharedInstance.checkIntenetConnection() == true)
         {
             
-            self.newsView?.startLoading()
+          //  self.newsView?.startLoading()
             
             
-            let strURL = String(format: "%@%@",kBaseURL,kAPIKey)
+            let strURL = String(format: "%@?lat=%@&lon=%@&appid=%@&units=metric",kBaseURL,objLocation.strLatitude!,objLocation.strLongitude!,kAPIKey)
             
             
             
@@ -49,7 +49,7 @@ class NewsPresenter {
             
             
             
-            newsService.createRequest(qMes: "",  strURL: strURL, method: "GET", completionBlock: { (output)   in
+            locationService.createRequest(qMes: "",  strURL: strURL, method: "GET", completionBlock: { (output)   in
                 // your failure handle
                 
                 print("get news output is",output)
@@ -68,19 +68,19 @@ class NewsPresenter {
                 
                   var arrTemp : NSMutableArray?  = NSMutableArray()
                 
-                  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
+                //  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
                 
                 
                 print("arrtemp count",arrTemp?.count)
                 
                 if(arrTemp == nil || arrTemp?.count == 0)
                 {
-                    self.newsView?.setEmptyNews()
+                   // self.newsView?.setEmptyNews()
                     //print set empty news
                 }
                 else
                 {
-                    var arrNews = [News]()
+                   /* var arrNews = [News]()
                     
                     for (index, element) in (arrTemp?.enumerated())!
                     {
@@ -147,12 +147,12 @@ class NewsPresenter {
                         
                         arrNews.append(ObjNews)
                         
-                    }
+                    }*/
                     
-                    print("arr News is",arrNews)
+                   // print("arr News is",arrNews)
                     
-                    print("arr News count is",arrNews.count)
-                    self.newsView?.setNewsData(news: arrNews)
+                    //print("arr News count is",arrNews.count)
+                    //self.newsView?.setNewsData(news: arrNews)
                 }
                 // print("arr all assets",arrTemp?.count)
                 
@@ -161,7 +161,7 @@ class NewsPresenter {
                 
                   DispatchQueue.main.async { () -> Void in
                     
-                    self.newsView?.finishLoading()
+                    //self.newsView?.finishLoading()
                     /*  if(arrTemp?.count == 0)
                      {
                      self.lblNoAssignee?.isHidden = false
@@ -184,7 +184,7 @@ class NewsPresenter {
 //
 //                }
                 DispatchQueue.main.async { () -> Void in
-                    self.newsView?.finishLoading()
+                //    self.newsView?.finishLoading()
                     /*   self.lblNoAssignee?.isHidden = false
                      
                      self.tblAddMechanics?.reloadData()*/
@@ -203,7 +203,7 @@ class NewsPresenter {
         
       
         
-    }*/
+    }
 	
 	
 	

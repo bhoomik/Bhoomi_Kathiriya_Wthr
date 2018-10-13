@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NewsService {
+class LocationService {
 	
 	
     

@@ -12,6 +12,8 @@ import CoreLocation
 class LocationListVC: UIViewController
 {
     
+    
+    var selCityIndex : Int?
     var locationManager: CLLocationManager!
   //  var arrCityList  = [City]()
     var appDelegate : AppDelegate?
@@ -70,16 +72,25 @@ class LocationListVC: UIViewController
     
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: Segue Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        
+        if (segue.identifier == "LocationListToWeatherDetail")
+        {
+            let objVC : WeatherDetailVC = segue.destination as! WeatherDetailVC
+            
+            objVC.objLocation = self.appDelegate?.arrCityList[self.selCityIndex!]
+            
+         //   objVC.objAssetTask = self.arrEventList?.object(at: self.selEventIndex!) as? MytaskAssetTask
+            
+          //  objVC.selTemplateIndex = self.selTemplateIndex
+            
+            
+        }
+        
     }
-    */
-
 }
 
 extension LocationListVC: LocationView
@@ -264,6 +275,8 @@ extension LocationListVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        self.selCityIndex = indexPath.row
+        self.performSegue(withIdentifier: "LocationListToWeatherDetail", sender: self)
     }
     
     
@@ -282,7 +295,7 @@ extension LocationListVC : CLLocationManagerDelegate
                 print("Unable to Reverse Geocode Location (\(error))")
             } else {
                 
-                print("placemark info",placemarks)
+             //   print("placemark info",placemarks)
                 
                 if let placemarks = placemarks, let placemark = placemarks.first {
                   
