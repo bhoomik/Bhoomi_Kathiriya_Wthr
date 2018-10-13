@@ -96,6 +96,7 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
                         let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
                         
                         let objAdletcationVM = AddLocationVM()
+                        print("insert data")
                         objAdletcationVM.InsertData(objLocation: objCity)
                         
                        // self.appDelegate!.arrCityList.append(objCity)

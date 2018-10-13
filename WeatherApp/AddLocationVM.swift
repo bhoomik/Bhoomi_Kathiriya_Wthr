@@ -32,53 +32,63 @@ public class AddLocationVM
         
         let strLocationId = String(format: "%@,%@",objLocation.strLatitude!,objLocation.strLongitude!)
 
-        if(self.someEntityExists(id: strLocationId)==true)
+        var shouldInsertData : Bool?
+        
+        if((self.checkIfCityExists(id: objLocation.strCityName!)==false) && (self.checkIfCountryExists(id: objLocation.strCountryName!)==false))
         {
-            
-            print("location alreay added")
-            return;
-            
-        }
         
-        let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
-        let newLocation = NSManagedObject(entity: entity!, insertInto: context)
-
-        
-        newLocation.setValue(objLocation.strCityName, forKey: "city")
-        newLocation.setValue(objLocation.strCountryName, forKey: "country")
-        newLocation.setValue(objLocation.strLatitude, forKey: "latitude")
-        newLocation.setValue(objLocation.strLongitude, forKey: "longitude")
-        newLocation.setValue(strLocationId, forKey: "locationid")
-
-        
-        do {
+            let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
+            let newLocation = NSManagedObject(entity: entity!, insertInto: context)
             
-            try context?.save()
             
-        } catch {
+            newLocation.setValue(objLocation.strCityName, forKey: "city")
+            newLocation.setValue(objLocation.strCountryName, forKey: "country")
+            newLocation.setValue(objLocation.strLatitude, forKey: "latitude")
+            newLocation.setValue(objLocation.strLongitude, forKey: "longitude")
+            newLocation.setValue(strLocationId, forKey: "locationid")
             
-            print("Failed saving")
-        }
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LocationInfo")
-        //request.predicate = NSPredicate(format: "age = %@", "12")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let result = try context?.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "city") as! String)
+            
+            do {
+                
+                try context?.save()
+                
+            } catch {
+                
+                print("Failed saving")
             }
             
-        } catch {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LocationInfo")
+            //request.predicate = NSPredicate(format: "age = %@", "12")
+            request.returnsObjectsAsFaults = false
             
-            print("Failed")
-        }
+            do {
+                let result = try context?.fetch(request)
+                for data in result as! [NSManagedObject] {
+                    print(data.value(forKey: "city") as! String)
+                }
+                
+            } catch {
+                
+                print("Failed")
+            }
 
+
+        }
+        else
+        {
+            print("location alreay added")
+           // return;
+            
+        }
+        
+     
         
     }
     
-    func someEntityExists(id: String) -> Bool {
+    func someEntityExists(id: String) -> Bool
+    {
+        
+        print("location id to be compared is",id)
         var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "locationid = %@", id)
         
@@ -96,6 +106,47 @@ public class AddLocationVM
         return results.count > 0
     }
     
+    func checkIfCityExists(id: String) -> Bool
+    {
+        
+        print("location id to be compared is",id)
+        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        fetchRequest.predicate = NSPredicate(format: "city = %@", id)
+        
+        var results: [NSManagedObject] = []
+        
+        do {
+            let managedObjectContext = appDelegate?.persistentContainer.viewContext
+            
+            results = (try managedObjectContext?.fetch(fetchRequest))!
+        }
+        catch {
+            print("error executing fetch request: \(error)")
+        }
+        
+        return results.count > 0
+    }
+    
+    func checkIfCountryExists(id: String) -> Bool
+    {
+        
+        print("location id to be compared is",id)
+        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        fetchRequest.predicate = NSPredicate(format: "country = %@", id)
+        
+        var results: [NSManagedObject] = []
+        
+        do {
+            let managedObjectContext = appDelegate?.persistentContainer.viewContext
+            
+            results = (try managedObjectContext?.fetch(fetchRequest))!
+        }
+        catch {
+            print("error executing fetch request: \(error)")
+        }
+        
+        return results.count > 0
+    }
     func retrieveData()
     {
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -126,6 +177,7 @@ public class AddLocationVM
 
                 let strLocationId = String(format: "%@,%@",strLatitude,strLongitude)
 
+                print("city name:  #location id:",strCity,strLocationId)
                 let dictLocation : NSMutableDictionary = NSMutableDictionary()
                 dictLocation.setValue(strCity, forKey: "city")
                 dictLocation.setValue(strCountry, forKey: "country")
