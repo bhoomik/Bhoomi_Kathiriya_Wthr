@@ -1,39 +1,16 @@
 //
 //  Common.swift
-//  Collecting_A/Bhoomi_Kathiriya/Projects/Collecting_ArtsProject/SourceControlCollectingArts/iphoneapp/Collecting_Arts/Sources/Common.swift:let kBaseURL = "http://api.pluto/v1/apirouter"rts
 //
 //  Created by Bhumi kathiria on 23/05/18.
 //  Copyright © 2018 Bhumi kathiria. All rights reserved.
-// Test
 
 import Foundation
 import UIKit
-import SVProgressHUD
 
-let alertViewHideTime = 2.0
 
 let customOrangeColor = UIColor(red: 227.0/255.0, green: 119.0/255.0, blue: 30.0/255.0, alpha: 1.0)
 
-//https://app.test.collecting-arts.net/login
 
-//Dev Server
-//let kBaseURL = "http://api.pluto/v1/apirouter/"
-
-//let kBaseMicorServieURL = "http://api.pluto/v1"
-//QA Server
-let kBaseURL = "https://api.test.collecting-arts.net/v1/apirouter/"
-//let kBaseMicorServieURL = "https://api.test.collecting-arts.net/v1"
-
-enum DictionaryKey:String {
-    case imageurl = "imageurl"
-    case type = "type"
-    case discription = "discription"
-    case createdDate = "createdDate"
-    case subAssetId = "subAssetId"
-    case subassetnoteid = "subassetnoteid"
-    case title = "title"
-     case fileName = "fileName"
-}
 
 struct ScreenSize
 {
@@ -123,7 +100,6 @@ extension UIColor{
 }
 
 
-let kTimeLineNewDotDuration =  900
 
 extension NSMutableArray{
     func filterArray(key:String,value:String) -> NSMutableArray {
@@ -145,3 +121,4 @@ class Common: NSObject {
         return instance
     }()
 }
+

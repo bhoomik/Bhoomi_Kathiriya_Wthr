@@ -8,23 +8,22 @@
 
 import Foundation
 
-class City: NSObject
+class Location: NSObject
 {
     
     var strCityName: String?
-    //   var strEventSubtitle: String?
-    //  var strSubTaskDescription: String?
     var strCountryName : String?
-    // var isTaskSelected = false
-    var strEventId: String?
     var arrEventAssets : NSMutableArray?
     var arrEventUsers : NSMutableArray?
     var dictLocation : NSMutableDictionary?
-    init(strCity: String, strCountry: String, dictLocation: NSMutableDictionary , eventId: String) {
+    var strLatitude : String?
+    var strLongitude : String?
+    init(strCity: String, strCountry: String, dictLocation: NSMutableDictionary , strLatitude: String,strLongitude: String) {
         self.strCityName = strCity
         self.dictLocation = dictLocation
-        self.strEventId = eventId
         self.strCountryName = strCountry
+        self.strLongitude = strLongitude
+        self.strLatitude = strLatitude
     }
     
 }

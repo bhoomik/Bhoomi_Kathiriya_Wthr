@@ -10,11 +10,22 @@ import UIKit
 
 class LocationListCell: UITableViewCell {
 
+    
+    @IBOutlet weak var lblLocation : UILabel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func setupData(objCity:Location)
+    {
+      
+        let strLocation = String(format: "%@, %@",objCity.strCityName!,objCity.strCountryName!)
+
+        self.lblLocation?.text = strLocation
+       
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
