@@ -18,15 +18,30 @@ public class AddLocationVM
 
     weak private var locationView: LocationView?
 
+    func attachView(view: LocationView) {
+        locationView = view
+    }
+
     func InsertData(objLocation : Location)
     {
-        self.appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         let context = appDelegate?.persistentContainer.viewContext
         
+        let strLocationId = String(format: "%@,%@",objLocation.strLatitude!,objLocation.strLongitude!)
+
+        if(self.someEntityExists(id: strLocationId)==true)
+        {
+            
+            print("location alreay added")
+            return;
+            
+        }
+        
         let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
         let newLocation = NSManagedObject(entity: entity!, insertInto: context)
-        var strLocationId = String(format: "%@,%@",objLocation.strLatitude!,objLocation.strLongitude!)
 
         
         newLocation.setValue(objLocation.strCityName, forKey: "city")
@@ -63,13 +78,31 @@ public class AddLocationVM
         
     }
     
+    func someEntityExists(id: String) -> Bool {
+        var fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+        fetchRequest.predicate = NSPredicate(format: "locationid = %@", id)
+        
+        var results: [NSManagedObject] = []
+        
+        do {
+            let managedObjectContext = appDelegate?.persistentContainer.viewContext
+
+            results = (try managedObjectContext?.fetch(fetchRequest))!
+        }
+        catch {
+            print("error executing fetch request: \(error)")
+        }
+        
+        return results.count > 0
+    }
+    
     func retrieveData()
     {
-        self.appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
 
         let context = appDelegate?.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
+     //   let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
      //   let newLocation = NSManagedObject(entity: entity!, insertInto: context)
         
         
@@ -81,6 +114,9 @@ public class AddLocationVM
         
         do {
             let result = try context?.fetch(request)
+            
+            var arrLocationTemp  = [Location]()
+
             for data in result as! [NSManagedObject]
             {
                 let strCity = data.value(forKey: "city") as! String
@@ -98,12 +134,16 @@ public class AddLocationVM
                 dictLocation.setValue(strLongitude, forKey: "longitude")
 
                 let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
-                self.appDelegate!.arrCityList.append(objCity)
+                arrLocationTemp.append(objCity)
+                //self.appDelegate!.arrCityList.append(objCity)
 
-                self.locationView?.setLocationData!()
+                print("arr location temp",arrLocationTemp)
+                print("locationview",locationView)
                 
                 print(data.value(forKey: "city") as! String)
             }
+            self.locationView?.setLocationData!(location:arrLocationTemp)
+
             
         } catch {
             

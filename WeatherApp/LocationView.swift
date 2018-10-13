@@ -17,7 +17,8 @@ import Foundation
     @objc optional func setEmptyNews()
     //@objc optional func setNewsData(news: [News])
     
-    @objc optional func setLocationData()
+    @objc optional func setLocationData(location: [Location])
+
 
      //@objc optional func setImageDetail(image:UIImage)
     //@objc optional func setNewsDetail(news:News)

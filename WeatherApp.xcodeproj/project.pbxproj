@@ -25,6 +25,8 @@
 		0E2717CF21708B1800E8FE1E /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2717CE21708B1700E8FE1E /* back.png */; };
 		0E2717D12171D2B900E8FE1E /* AddLocationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2717D02171D2B900E8FE1E /* AddLocationVM.swift */; };
 		0E2717D32171E73C00E8FE1E /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2717D22171E73B00E8FE1E /* LocationView.swift */; };
+		0E2717FB2171FF7300E8FE1E /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2717FA2171FF7300E8FE1E /* CartPresenter.swift */; };
+		0E2717FD217200B500E8FE1E /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2717FC217200B500E8FE1E /* NewsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		0E2717CE21708B1700E8FE1E /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		0E2717D02171D2B900E8FE1E /* AddLocationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationVM.swift; sourceTree = "<group>"; };
 		0E2717D22171E73B00E8FE1E /* LocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		0E2717FA2171FF7300E8FE1E /* CartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		0E2717FC217200B500E8FE1E /* NewsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +135,12 @@
 				0E2717A0216F65BB00E8FE1E /* Info.plist */,
 				0E271791216F65B800E8FE1E /* WeatherApp.xcdatamodeld */,
 				0E2717C2216F6E3000E8FE1E /* LocationListVC.swift */,
+				0E2717FC217200B500E8FE1E /* NewsService.swift */,
 				0E2717C4216F70F700E8FE1E /* LocationListCell.swift */,
 				0E2717D22171E73B00E8FE1E /* LocationView.swift */,
 				0E2717C82170595F00E8FE1E /* Location.swift */,
 				0E2717CC2170877B00E8FE1E /* AddLocationVC.swift */,
+				0E2717FA2171FF7300E8FE1E /* CartPresenter.swift */,
 				0E2717D02171D2B900E8FE1E /* AddLocationVM.swift */,
 			);
 			path = WeatherApp;
@@ -298,7 +304,9 @@
 				0E271790216F65B800E8FE1E /* AppDelegate.swift in Sources */,
 				0E271795216F65B800E8FE1E /* MasterViewController.swift in Sources */,
 				0E271797216F65B800E8FE1E /* DetailViewController.swift in Sources */,
+				0E2717FD217200B500E8FE1E /* NewsService.swift in Sources */,
 				0E2717C3216F6E3000E8FE1E /* LocationListVC.swift in Sources */,
+				0E2717FB2171FF7300E8FE1E /* CartPresenter.swift in Sources */,
 				0E2717CD2170877B00E8FE1E /* AddLocationVC.swift in Sources */,
 				0E2717C92170595F00E8FE1E /* Location.swift in Sources */,
 				0E2717C7216F748400E8FE1E /* Common.swift in Sources */,
