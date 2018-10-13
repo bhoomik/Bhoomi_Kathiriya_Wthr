@@ -41,6 +41,8 @@ class LocationListVC: UIViewController
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
+        let objAddLocationVM = AddLocationVM()
+        objAddLocationVM.retrieveData()
 
     }
     
@@ -53,7 +55,8 @@ class LocationListVC: UIViewController
         
     }
 
-
+    
+    
     // MARK: - Memory Management
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,6 +75,18 @@ class LocationListVC: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension LocationListVC: LocationView
+{
+   
+    func setLocationData()
+    {
+        print("reload data")
+        
+        self.tblLocationList?.reloadData()
+    }
 
 }
 
@@ -261,10 +276,12 @@ extension LocationListVC : CLLocationManagerDelegate
             if let error = error {
                 print("Unable to Reverse Geocode Location (\(error))")
             } else {
+                
+                
                 if let placemarks = placemarks, let placemark = placemarks.first {
                   
-                    print("city: ",placemark.locality)
-                    print("country: ",placemark.country)
+               //     print("city: ",placemark.locality)
+                 //   print("country: ",placemark.country)
                   
                     var strCity : String = ""
                     var strCountry : String = ""
@@ -278,13 +295,15 @@ extension LocationListVC : CLLocationManagerDelegate
                         strCountry = placemark.country!
                     }
                     
-                    let lat = location.coordinate.latitude
-                    let long = location.coordinate.longitude
+                 //   let lat = location.coordinate.latitude
+                  //  let long = location.coordinate.longitude
                     
-                    var strLatitude : String = String(format: "%f", location.coordinate.latitude)
+                    let strLatitude : String = String(format: "%f", location.coordinate.latitude)
                     print("latitude is",strLatitude)
-                    var strLongitude : String = String(format: "%f", location.coordinate.longitude)
+                    let strLongitude : String = String(format: "%f", location.coordinate.longitude)
                     print("longitude is",strLongitude)
+
+                    let strLocationId = String(format: "%@,%@",strLatitude,strLongitude)
 
                     let dictLocation : NSMutableDictionary = NSMutableDictionary()
                     dictLocation.setValue(strCity, forKey: "city")
@@ -295,9 +314,12 @@ extension LocationListVC : CLLocationManagerDelegate
 
                     if(placemark.locality != nil)
                     {
-                        var objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude)
+                        let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
                         
+                        let objAdletcationVM = AddLocationVM()
+                        objAdletcationVM.InsertData(objLocation: objCity)
                         self.appDelegate!.arrCityList.append(objCity)
+                        
                         self.tblLocationList?.reloadData()
                     }
                     //self.city = placemark.locality!

@@ -51,17 +51,17 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
         let getLat: CLLocationDegrees = coordinate2.latitude
         let getLon: CLLocationDegrees = coordinate2.longitude
         
-        var strLatitude : String = String(format: "%f", coordinate2.latitude)
+        let strLatitude : String = String(format: "%f", coordinate2.latitude)
         print("latitude is",strLatitude)
-        var strLongitude : String = String(format: "%f", coordinate2.longitude)
+        let strLongitude : String = String(format: "%f", coordinate2.longitude)
         print("longitude is",strLongitude)
 
         
-        var mapLocation: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
+        let mapLocation: CLLocation =  CLLocation(latitude: getLat, longitude: getLon)
 
         var strCity : String = ""
         var strCountry : String = ""
-        
+        var strLocationId : String = ""
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(mapLocation) { (placemarks, error) in
             // Process Response
@@ -70,8 +70,8 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
             } else {
                 if let placemarks = placemarks, let placemark = placemarks.first {
                     
-                    print("city: ",placemark.locality)
-                    print("country: ",placemark.country)
+                  //  print("city: ",placemark.locality)
+                   // print("country: ",placemark.country)
                     
                     if(placemark.locality != nil)
                     {
@@ -81,15 +81,23 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
                     {
                         strCountry = placemark.country!
                     }
-                    var dictLocation : NSMutableDictionary = NSMutableDictionary()
+                    strLocationId = String(format: "%@,%@",strLatitude,strLongitude)
+
+                    let dictLocation : NSMutableDictionary = NSMutableDictionary()
                     dictLocation.setValue(strCity, forKey: "city")
                     dictLocation.setValue(strCountry, forKey: "country")
                     
                     dictLocation.setValue(strLatitude, forKey: "latitude")
                     dictLocation.setValue(strLongitude, forKey: "longitude")
+                    dictLocation.setValue(strLocationId, forKey: "locationId")
+
                     if(placemark.locality != nil ||  placemark.country != nil)
                     {
-                        let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude)
+                        let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
+                        
+                        let objAdletcationVM = AddLocationVM()
+                        objAdletcationVM.InsertData(objLocation: objCity)
+                        
                         self.appDelegate!.arrCityList.append(objCity)
                         
                     }

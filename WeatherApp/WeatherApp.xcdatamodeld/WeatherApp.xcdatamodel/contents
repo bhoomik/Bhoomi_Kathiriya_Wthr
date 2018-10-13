@@ -12,10 +12,11 @@
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="90"/>
-        <element name="LocationInfo" positionX="261" positionY="198" width="128" height="105"/>
+        <element name="LocationInfo" positionX="261" positionY="198" width="128" height="120"/>
     </elements>
 </model>

@@ -18,12 +18,15 @@ class Location: NSObject
     var dictLocation : NSMutableDictionary?
     var strLatitude : String?
     var strLongitude : String?
-    init(strCity: String, strCountry: String, dictLocation: NSMutableDictionary , strLatitude: String,strLongitude: String) {
+    var strLocationId : String?
+
+    init(strCity: String, strCountry: String, dictLocation: NSMutableDictionary , strLatitude: String,strLongitude: String,strLocationId : String) {
         self.strCityName = strCity
         self.dictLocation = dictLocation
         self.strCountryName = strCountry
         self.strLongitude = strLongitude
         self.strLatitude = strLatitude
+        self.strLocationId = strLocationId
     }
     
 }
