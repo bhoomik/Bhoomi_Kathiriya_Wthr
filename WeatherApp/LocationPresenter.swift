@@ -124,6 +124,29 @@ class LocationPresenter {
                     print("wind info",strWind)
                 }
                 
+                var  dictRain : NSDictionary  = NSDictionary()
+                var arrWeather : NSArray = NSArray()
+                
+                if let weather = dictTemp.value(forKey: "weather") as? NSArray
+                    
+                {
+                    
+                    arrWeather = weather
+                    
+                    print("arrweather is",arrWeather)
+                    
+                    if let rainDict = arrWeather.object(at: 0) as? NSDictionary
+                    {
+                        dictRain =  rainDict
+                        
+                        if let rain = dictRain.value(forKey: "main") as? String
+                        {
+                            strRain = String(format: "%@",rain)
+                            print("temp is",strRain)
+                        }
+                        
+                    }
+                }
                 var dictWeather : NSMutableDictionary = NSMutableDictionary()
                 dictWeather  = dictTemp.mutableCopy() as! NSMutableDictionary
                 
