@@ -380,6 +380,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="dkb-EG-Xgj" id="AiD-dC-T3B"/>
+                        <outlet property="lblLocation" destination="1KP-6N-nbb" id="ghn-VM-TRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iq-qL-gvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

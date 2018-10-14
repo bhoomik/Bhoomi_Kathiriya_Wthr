@@ -101,6 +101,19 @@ class LocationPresenter {
                     print("main dict is",dictMain)
                 }
                 
+                if let sysict = dictTemp.value(forKey: "sys") as? NSDictionary
+                    
+                {
+                  //  dictMain = maindict
+                    
+                    if let country = sysict.value(forKey: "country") as? String
+                    {
+                        strCountry = String(format: "%@",country)
+                        print("country is",strCountry)
+                    }
+                    
+                }
+                
                 var  dictWind : NSDictionary  = NSDictionary()
                 
                 if let winddict = dictTemp.value(forKey: "wind") as? NSDictionary

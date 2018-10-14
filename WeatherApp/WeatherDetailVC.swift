@@ -25,6 +25,7 @@ extension WeatherDetailVC : LocationView
         self.objWeatherInfo = objWeatherInfo
         DispatchQueue.main.async { () -> Void in
             
+            self.lblLocation?.text = String(format: "%@ ,%@",(self.objWeatherInfo?.strCityName)!, objWeatherInfo.strCountryName!)
             self.collectionView.reloadData()
         }
         print("update weather Info")
@@ -42,7 +43,8 @@ class WeatherDetailVC: UIViewController {
     var arrTitleImage : NSMutableArray? = NSMutableArray()
     var objLocation : Location?
     var objWeatherInfo : WeatherInfo?
-
+    @IBOutlet weak var lblLocation : UILabel?
+    
     private let locaionPresenter = LocationPresenter(locationService: LocationService())
 
     override func viewDidLoad() {
