@@ -70,6 +70,8 @@ class LocationPresenter {
                 
                 //  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
                 
+                self.locationView?.setWeatherInfo!()
+
                 
                 print("arrtemp count",arrTemp?.count)
                 

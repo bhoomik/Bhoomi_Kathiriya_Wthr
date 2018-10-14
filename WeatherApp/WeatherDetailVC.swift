@@ -16,6 +16,18 @@ class CollectionViewCell : UICollectionViewCell {
 
 }
 
+
+extension WeatherDetailVC : LocationView
+{
+    
+    func setWeatherInfo()
+    {
+        print("update weather Info")
+    }
+    
+}
+
+
 class WeatherDetailVC: UIViewController {
 
     let reuseIdentifier = "collectionViewCellId"
@@ -35,6 +47,8 @@ class WeatherDetailVC: UIViewController {
 
     func commonInit()
     {
+        locaionPresenter.attachView(view:self)
+        
         let dictTemp : NSMutableDictionary = NSMutableDictionary()
         dictTemp.setValue("Temperature", forKey: "title")
         dictTemp.setValue("temp.png", forKey: "image")
@@ -62,12 +76,14 @@ class WeatherDetailVC: UIViewController {
         
         self.collectionView.reloadData()
 
-        
+        self.collectionView.layer.masksToBounds = true
+        self.collectionView.layer.cornerRadius = 10
         locaionPresenter.getLocationData(objLocation: self.objLocation!)
         
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

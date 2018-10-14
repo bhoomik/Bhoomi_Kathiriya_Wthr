@@ -38,6 +38,7 @@
 		0E27180F2173317700E8FE1E /* humidity.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E27180E2173317700E8FE1E /* humidity.png */; };
 		0E271811217331A300E8FE1E /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E271810217331A300E8FE1E /* rain.png */; };
 		0E271813217331CA00E8FE1E /* wind.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E271812217331CA00E8FE1E /* wind.png */; };
+		0E271816217335F700E8FE1E /* WeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E271815217335F700E8FE1E /* WeatherInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		0E27180E2173317700E8FE1E /* humidity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humidity.png; sourceTree = "<group>"; };
 		0E271810217331A300E8FE1E /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
 		0E271812217331CA00E8FE1E /* wind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wind.png; sourceTree = "<group>"; };
+		0E271815217335F700E8FE1E /* WeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,13 +147,7 @@
 		0E27178E216F65B800E8FE1E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				0E2717CA2170853200E8FE1E /* add_location.png */,
-				0E2717CE21708B1700E8FE1E /* back.png */,
-				0E27180C217330D400E8FE1E /* temp.png */,
-				0E27180A21732F0400E8FE1E /* weather_BG.jpg */,
-				0E27180E2173317700E8FE1E /* humidity.png */,
-				0E271810217331A300E8FE1E /* rain.png */,
-				0E271812217331CA00E8FE1E /* wind.png */,
+				0E2718142173346100E8FE1E /* Images */,
 				0E27180221721CEA00E8FE1E /* Rechability.swift */,
 				0E27178F216F65B800E8FE1E /* AppDelegate.swift */,
 				0E271794216F65B800E8FE1E /* MasterViewController.swift */,
@@ -175,6 +171,7 @@
 				0E2717D02171D2B900E8FE1E /* AddLocationVM.swift */,
 				0E2717FE2172146200E8FE1E /* WeatherDetailVC.swift */,
 				0E2718082173253500E8FE1E /* WeatherInfo.swift */,
+				0E271815217335F700E8FE1E /* WeatherInfoView.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -195,6 +192,20 @@
 				0E2717B6216F65BB00E8FE1E /* Info.plist */,
 			);
 			path = WeatherAppUITests;
+			sourceTree = "<group>";
+		};
+		0E2718142173346100E8FE1E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0E2717CA2170853200E8FE1E /* add_location.png */,
+				0E2717CE21708B1700E8FE1E /* back.png */,
+				0E27180C217330D400E8FE1E /* temp.png */,
+				0E27180A21732F0400E8FE1E /* weather_BG.jpg */,
+				0E27180E2173317700E8FE1E /* humidity.png */,
+				0E271810217331A300E8FE1E /* rain.png */,
+				0E271812217331CA00E8FE1E /* wind.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				0E271793216F65B800E8FE1E /* WeatherApp.xcdatamodeld in Sources */,
 				0E271790216F65B800E8FE1E /* AppDelegate.swift in Sources */,
 				0E271795216F65B800E8FE1E /* MasterViewController.swift in Sources */,
+				0E271816217335F700E8FE1E /* WeatherInfoView.swift in Sources */,
 				0E271797216F65B800E8FE1E /* DetailViewController.swift in Sources */,
 				0E2717FD217200B500E8FE1E /* LocationService.swift in Sources */,
 				0E2717C3216F6E3000E8FE1E /* LocationListVC.swift in Sources */,

@@ -1,11 +1,10 @@
 //
-//  NewsView.swift
-//  Swift_MVP
+//  LocationView.swift
+//  WeatherApp
 //
+//  Created by Bhoomi Kathiriya on 14/10/18.
+//  Copyright © 2018 Bhoomi Kathiriya. All rights reserved.
 //
-//  Copyright © 2017 balitax. All rights reserved.
-//
-
 import Foundation
 
 @objc protocol LocationView: NSObjectProtocol {
@@ -15,6 +14,8 @@ import Foundation
 
 	
     @objc optional func setEmptyNews()
+    @objc optional func setWeatherInfo()
+
     //@objc optional func setNewsData(news: [News])
     
     @objc optional func setLocationData(location: [Location])
