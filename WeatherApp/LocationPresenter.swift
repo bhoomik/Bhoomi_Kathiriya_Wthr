@@ -84,19 +84,44 @@ class LocationPresenter {
                 {
                     dictMain = maindict
                     
-                    if let humidity = dictMain.value(forKey: "humidity") as? Float
+                    if let humidity = dictMain.value(forKey: "humidity") as? NSNumber
                     {
-                        strHumidity = String(format: "%.2f",humidity)
+                        strHumidity = String(format: "%@",humidity)
                         print("humidity is",strHumidity)
                     }
-                    if let temp = dictMain.value(forKey: "temp") as? Float
+                    if let temp = dictMain.value(forKey: "temp") as? NSNumber
                     {
-                        strTemp = String(format: "%.2f",temp)
+
+                        print("temp1 is",temp)
+                        strTemp = String(format: "%@",temp)
                         print("temp is",strTemp)
                     }
 
                     
                     print("main dict is",dictMain)
+                }
+                
+                var  dictWind : NSDictionary  = NSDictionary()
+                
+                if let winddict = dictTemp.value(forKey: "wind") as? NSDictionary
+                    
+                {
+                    dictWind = winddict
+                    var strSpeed : String = ""
+                    var strDegree : String = ""
+                    if let speed = dictWind.value(forKey: "speed") as? NSNumber
+                    {
+                        strSpeed = String(format: "%@",speed)
+                        print("humidity is",strHumidity)
+                    }
+                    if let degree = dictWind.value(forKey: "deg") as? NSNumber
+                    {
+                        strDegree = String(format: "%@",degree)
+                        print("temp is",strTemp)
+                    }
+                    
+                    strWind = String(format: "%@ at %@",strDegree,strSpeed)
+                    print("wind info",strWind)
                 }
                 
                 var dictWeather : NSMutableDictionary = NSMutableDictionary()
