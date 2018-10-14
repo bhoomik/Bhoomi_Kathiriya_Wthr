@@ -152,7 +152,22 @@ extension LocationListVC:UITableViewDelegate,UITableViewDataSource{
     }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+        if (editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            
+            let objLocation = self.appDelegate?.arrCityList[indexPath.row]
+            
+            var objAddLocationVM = AddLocationVM()
+            objAddLocationVM.attachView(view: self)
+            objAddLocationVM.deleteData(objLocation: objLocation!)
+            objAddLocationVM.retrieveData()
+         /*   let commit = self.appDelegate?.arrCityList[indexPath.row]
+            self.appDelegate?.persistentContainer.viewContext.delete(commit)
+            self.appDelegate?.arrCityList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            saveContext()*/
+
             // handle delete (by removing the data from your array and updating the tableview)
         }
     }

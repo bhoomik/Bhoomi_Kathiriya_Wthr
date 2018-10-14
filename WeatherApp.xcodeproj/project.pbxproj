@@ -39,6 +39,7 @@
 		0E271811217331A300E8FE1E /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E271810217331A300E8FE1E /* rain.png */; };
 		0E271813217331CA00E8FE1E /* wind.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E271812217331CA00E8FE1E /* wind.png */; };
 		0E271816217335F700E8FE1E /* WeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E271815217335F700E8FE1E /* WeatherInfoView.swift */; };
+		0E2718192173665000E8FE1E /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2718182173665000E8FE1E /* LocationObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		0E271810217331A300E8FE1E /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
 		0E271812217331CA00E8FE1E /* wind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wind.png; sourceTree = "<group>"; };
 		0E271815217335F700E8FE1E /* WeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoView.swift; sourceTree = "<group>"; };
+		0E2718182173665000E8FE1E /* LocationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			children = (
 				0E2718082173253500E8FE1E /* WeatherInfo.swift */,
 				0E2717C82170595F00E8FE1E /* Location.swift */,
+				0E2718182173665000E8FE1E /* LocationObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				0E271816217335F700E8FE1E /* WeatherInfoView.swift in Sources */,
 				0E271797216F65B800E8FE1E /* DetailViewController.swift in Sources */,
 				0E2717FD217200B500E8FE1E /* LocationService.swift in Sources */,
+				0E2718192173665000E8FE1E /* LocationObject.swift in Sources */,
 				0E2717C3216F6E3000E8FE1E /* LocationListVC.swift in Sources */,
 				0E2717FB2171FF7300E8FE1E /* LocationPresenter.swift in Sources */,
 				0E271807217311A900E8FE1E /* CenterViewFlowLayout.swift in Sources */,
