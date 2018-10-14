@@ -31,6 +31,7 @@
 		0E27180121721CBF00E8FE1E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E27180021721CBF00E8FE1E /* Helper.swift */; };
 		0E27180321721CEA00E8FE1E /* Rechability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E27180221721CEA00E8FE1E /* Rechability.swift */; };
 		0E27180521721D1C00E8FE1E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E27180421721D1C00E8FE1E /* ActivityIndicator.swift */; };
+		0E271807217311A900E8FE1E /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E271806217311A800E8FE1E /* CenterViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		0E27180021721CBF00E8FE1E /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0E27180221721CEA00E8FE1E /* Rechability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rechability.swift; sourceTree = "<group>"; };
 		0E27180421721D1C00E8FE1E /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		0E271806217311A800E8FE1E /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				0E2717A0216F65BB00E8FE1E /* Info.plist */,
 				0E271791216F65B800E8FE1E /* WeatherApp.xcdatamodeld */,
 				0E2717C2216F6E3000E8FE1E /* LocationListVC.swift */,
+				0E271806217311A800E8FE1E /* CenterViewFlowLayout.swift */,
 				0E2717FC217200B500E8FE1E /* LocationService.swift */,
 				0E2717C4216F70F700E8FE1E /* LocationListCell.swift */,
 				0E2717D22171E73B00E8FE1E /* LocationView.swift */,
@@ -320,6 +323,7 @@
 				0E2717FD217200B500E8FE1E /* LocationService.swift in Sources */,
 				0E2717C3216F6E3000E8FE1E /* LocationListVC.swift in Sources */,
 				0E2717FB2171FF7300E8FE1E /* LocationPresenter.swift in Sources */,
+				0E271807217311A900E8FE1E /* CenterViewFlowLayout.swift in Sources */,
 				0E2717FF2172146200E8FE1E /* WeatherDetailVC.swift in Sources */,
 				0E27180321721CEA00E8FE1E /* Rechability.swift in Sources */,
 				0E2717CD2170877B00E8FE1E /* AddLocationVC.swift in Sources */,

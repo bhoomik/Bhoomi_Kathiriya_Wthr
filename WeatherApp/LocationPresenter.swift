@@ -52,7 +52,7 @@ class LocationPresenter {
             locationService.createRequest(qMes: "",  strURL: strURL, method: "GET", completionBlock: { (output)   in
                 // your failure handle
                 
-                print("get news output is",output)
+                print("get weather output is",output)
                 
                 // let dictResponse = output
                 

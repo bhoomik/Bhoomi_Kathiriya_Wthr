@@ -8,8 +8,16 @@
 
 import UIKit
 
+class CollectionViewCell : UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+}
+
 class WeatherDetailVC: UIViewController {
 
+    let reuseIdentifier = "collectionViewCellId"
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     var objLocation : Location?
     
@@ -26,6 +34,7 @@ class WeatherDetailVC: UIViewController {
         locaionPresenter.getLocationData(objLocation: self.objLocation!)
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,4 +59,25 @@ class WeatherDetailVC: UIViewController {
     }
     */
 
+}
+extension WeatherDetailVC : UICollectionViewDataSource
+{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        
+        cell.imageView.backgroundColor = UIColor.gray
+        
+        return cell
+    }
+
+    
 }
