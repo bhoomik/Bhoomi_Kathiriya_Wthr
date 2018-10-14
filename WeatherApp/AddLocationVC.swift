@@ -10,9 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
+class AddLocationVC: UIViewController,UIGestureRecognizerDelegate,CLLocationManagerDelegate,MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    var locationManager = CLLocationManager()
+
     var appDelegate : AppDelegate?
 
     
@@ -31,6 +33,16 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
         
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
 
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+      
+        /*locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
+        }*/
+
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureReconizer:)))
         gestureRecognizer.delegate = self
@@ -39,6 +51,14 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate {
     }
     
 
+  /*  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let location = locations.last as! CLLocation
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        var region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        region.center = mapView.userLocation.coordinate
+        mapView.setRegion(region, animated: true)
+    }*/
+    
     //MARK: Gesture Recognizor Methods
     
     @objc func handleTap(gestureReconizer: UILongPressGestureRecognizer) {

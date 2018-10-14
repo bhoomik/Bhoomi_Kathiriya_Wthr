@@ -34,7 +34,17 @@ public class AddLocationVM
 
         var shouldInsertData : Bool?
         
-        if((self.checkIfCityExists(id: objLocation.strCityName!)==false) && (self.checkIfCountryExists(id: objLocation.strCountryName!)==false))
+        var isCityExists : Bool = self.checkIfCityExists(id: objLocation.strCityName!)
+        var isCountryExists : Bool = self.checkIfCountryExists(id: objLocation.strCountryName!)
+        
+
+        if(isCityExists==true && isCountryExists==true)
+        {
+            print("#location alreay added")
+            
+            return;
+        }
+        else
         {
         
             let entity = NSEntityDescription.entity(forEntityName: "LocationInfo", in: context!)
@@ -74,16 +84,11 @@ public class AddLocationVM
 
 
         }
-        else
-        {
-            print("location alreay added")
-           // return;
-            
-        }
-        
+    }
+    
      
         
-    }
+    
     
     func someEntityExists(id: String) -> Bool
     {
@@ -109,7 +114,7 @@ public class AddLocationVM
     func checkIfCityExists(id: String) -> Bool
     {
         
-        print("location id to be compared is",id)
+        print("location city to be compared is",id)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "city = %@", id)
         
@@ -130,7 +135,7 @@ public class AddLocationVM
     func checkIfCountryExists(id: String) -> Bool
     {
         
-        print("location id to be compared is",id)
+        print("location country to be compared is",id)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
         fetchRequest.predicate = NSPredicate(format: "country = %@", id)
         
