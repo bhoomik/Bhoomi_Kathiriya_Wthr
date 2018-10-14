@@ -284,7 +284,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="UhK-NX-PRy"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbG-eW-tRF" customClass="CenterViewFlowLayout" customModule="UICollectionViewHorizontalPaging" customModuleProvider="target">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbG-eW-tRF">
                                     <size key="itemSize" width="138" height="138"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -322,6 +322,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dkb-EG-Xgj" firstAttribute="centerX" secondItem="QLC-xW-nsF" secondAttribute="centerX" id="0gV-Dx-ser"/>
                             <constraint firstItem="S3Q-Pr-UXV" firstAttribute="leading" secondItem="cSZ-pI-U3u" secondAttribute="leading" id="4uT-34-mMF"/>
                             <constraint firstItem="dkb-EG-Xgj" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" constant="15" id="64r-U6-Fau"/>
                             <constraint firstItem="zwl-9g-s3t" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" id="FlW-rC-4Pd"/>
