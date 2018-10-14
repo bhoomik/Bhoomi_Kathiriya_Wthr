@@ -14,7 +14,7 @@ import Foundation
 
 	
     @objc optional func setEmptyNews()
-    @objc optional func setWeatherInfo()
+    @objc optional func setWeatherInfo(objWeatherInfo : WeatherInfo)
 
     //@objc optional func setNewsData(news: [News])
     

@@ -281,7 +281,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dkb-EG-Xgj">
-                                <rect key="frame" x="15" y="190" width="345" height="139"/>
+                                <rect key="frame" x="15" y="140" width="345" height="139"/>
                                 <color key="backgroundColor" red="0.25809585492227982" green="0.25809585492227982" blue="0.25809585492227982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="UhK-NX-PRy"/>
@@ -314,9 +314,18 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-gN-Sc5">
+                                                    <rect key="frame" x="0.0" y="75" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="b1S-gN-Sc5" firstAttribute="leading" secondItem="eQe-BR-ryD" secondAttribute="leading" id="40e-xU-MeY"/>
+                                            <constraint firstItem="b1S-gN-Sc5" firstAttribute="top" secondItem="QqK-DF-AFh" secondAttribute="bottom" constant="10" id="DhA-3q-z50"/>
+                                            <constraint firstAttribute="trailing" secondItem="b1S-gN-Sc5" secondAttribute="trailing" id="FOa-Sg-Ond"/>
                                             <constraint firstItem="ebe-bH-fdk" firstAttribute="top" secondItem="eQe-BR-ryD" secondAttribute="top" id="gEB-VE-MaV"/>
                                             <constraint firstAttribute="trailing" secondItem="QqK-DF-AFh" secondAttribute="trailing" id="kyK-dT-xND"/>
                                             <constraint firstItem="QqK-DF-AFh" firstAttribute="top" secondItem="ebe-bH-fdk" secondAttribute="bottom" constant="14" id="oi6-rr-Eeh"/>
@@ -327,6 +336,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="ebe-bH-fdk" id="uOI-B2-xxs"/>
                                             <outlet property="lblTitle" destination="QqK-DF-AFh" id="pJJ-2R-JY5"/>
+                                            <outlet property="lblValue" destination="b1S-gN-Sc5" id="pJP-El-uhr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -356,7 +366,7 @@
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="1KP-6N-nbb" secondAttribute="trailing" id="FRg-UU-KwZ"/>
                             <constraint firstItem="zwl-9g-s3t" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" id="FlW-rC-4Pd"/>
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="dkb-EG-Xgj" secondAttribute="trailing" constant="15" id="SvI-mC-7VF"/>
-                            <constraint firstItem="dkb-EG-Xgj" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" constant="170" id="VWA-hi-Sfc"/>
+                            <constraint firstItem="dkb-EG-Xgj" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" constant="120" id="VWA-hi-Sfc"/>
                             <constraint firstItem="zwl-9g-s3t" firstAttribute="bottom" secondItem="S3Q-Pr-UXV" secondAttribute="bottom" id="Z26-vx-QFN"/>
                             <constraint firstItem="1KP-6N-nbb" firstAttribute="top" secondItem="zwl-9g-s3t" secondAttribute="bottom" constant="25" id="Zx5-Pf-QUr"/>
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="CLg-0A-7ln" secondAttribute="trailing" id="cYf-Rk-Y69"/>

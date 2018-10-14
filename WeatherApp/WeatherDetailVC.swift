@@ -20,8 +20,13 @@ class CollectionViewCell : UICollectionViewCell {
 extension WeatherDetailVC : LocationView
 {
     
-    func setWeatherInfo()
+    func setWeatherInfo(objWeatherInfo : WeatherInfo)
     {
+        self.objWeatherInfo = objWeatherInfo
+        DispatchQueue.main.async { () -> Void in
+            
+            self.collectionView.reloadData()
+        }
         print("update weather Info")
     }
     
@@ -36,7 +41,8 @@ class WeatherDetailVC: UIViewController {
     
     var arrTitleImage : NSMutableArray? = NSMutableArray()
     var objLocation : Location?
-    
+    var objWeatherInfo : WeatherInfo?
+
     private let locaionPresenter = LocationPresenter(locationService: LocationService())
 
     override func viewDidLoad() {
@@ -127,6 +133,25 @@ extension WeatherDetailVC : UICollectionViewDataSource
         let image : UIImage = UIImage(named:dictTitle.value(forKey: "image") as! String)!
         cell.imageView.image = image
         
+        switch indexPath.row {
+        case 0:
+            cell.lblValue.text = self.objWeatherInfo?.strTemp
+            break;
+        case 1:
+            cell.lblValue.text = self.objWeatherInfo?.strHumidiy
+            break;
+            
+        case 2:
+            cell.lblValue.text = self.objWeatherInfo?.strRain
+            break;
+            
+        case 3:
+            cell.lblValue.text = self.objWeatherInfo?.strWind
+            break;
+            
+        default:
+            break;
+        }
         return cell
     }
 

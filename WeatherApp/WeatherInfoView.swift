@@ -9,7 +9,7 @@
 import Foundation
 
 
-@objc protocol WeatherInfo: NSObjectProtocol {
+@objc protocol WeatherInfoView: NSObjectProtocol {
     
     @objc optional func startLoading()
     @objc optional func finishLoading()
@@ -18,7 +18,7 @@ import Foundation
     @objc optional func setEmptyNews()
     //@objc optional func setNewsData(news: [News])
     
-    @objc optional func setWeatherInfo()
+    @objc optional func setWeatherInfo(objWeatherInfo : WeatherInfo)
     
     
     //@objc optional func setImageDetail(image:UIImage)

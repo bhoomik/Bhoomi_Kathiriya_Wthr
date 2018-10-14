@@ -13,8 +13,6 @@ class Location: NSObject
     
     var strCityName: String?
     var strCountryName : String?
-    var arrEventAssets : NSMutableArray?
-    var arrEventUsers : NSMutableArray?
     var dictLocation : NSMutableDictionary?
     var strLatitude : String?
     var strLongitude : String?

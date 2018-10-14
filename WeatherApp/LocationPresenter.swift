@@ -61,8 +61,51 @@ class LocationPresenter {
                 dictTemp = output as NSDictionary
                 
                 
+                var strTemp : String = ""
+                var strRain : String = ""
+                var strHumidity : String = ""
+                var strWind : String = ""
+                var strCity : String = ""
+                var strCountry : String = ""
+
+             //   if let firstName = dictAssignee.value(forKey: "firstName") as? String
+
                 
-                print("dict get news output",dictTemp)
+                if let city = dictTemp.value(forKey: "name") as? String
+                {
+                    strCity = city
+                    print("city is",strCity)
+                }
+                
+                var  dictMain : NSDictionary  = NSDictionary()
+                
+                if let maindict = dictTemp.value(forKey: "main") as? NSDictionary
+
+                {
+                    dictMain = maindict
+                    
+                    if let humidity = dictMain.value(forKey: "humidity") as? Float
+                    {
+                        strHumidity = String(format: "%.2f",humidity)
+                        print("humidity is",strHumidity)
+                    }
+                    if let temp = dictMain.value(forKey: "temp") as? Float
+                    {
+                        strTemp = String(format: "%.2f",temp)
+                        print("temp is",strTemp)
+                    }
+
+                    
+                    print("main dict is",dictMain)
+                }
+                
+                var dictWeather : NSMutableDictionary = NSMutableDictionary()
+                dictWeather  = dictTemp.mutableCopy() as! NSMutableDictionary
+                
+                var objWeatherInfo : WeatherInfo = WeatherInfo(strCity: strCity, strCountry: strCountry, dictWeather: dictWeather, strTemp: strTemp, strHumidiy: strHumidity, strRain: strRain, strWind: strWind)
+                
+                
+                print("dict weather output",dictTemp)
                 
                 
                 
@@ -70,7 +113,7 @@ class LocationPresenter {
                 
                 //  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
                 
-                self.locationView?.setWeatherInfo!()
+                self.locationView?.setWeatherInfo!(objWeatherInfo: objWeatherInfo)
 
                 
                 print("arrtemp count",arrTemp?.count)
