@@ -11,6 +11,11 @@ import XCTest
 
 class WeatherAppTests: XCTestCase {
     
+    private let locaionPresenter = LocationPresenter(locationService: LocationService())
+    private let locationService: LocationService? = LocationService()
+
+    let strURL = String(format: "%@?lat=%@&lon=%@&appid=%@&units=metric",kBaseURL,"-33.863400","151.211000",kAPIKey)
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,5 +37,28 @@ class WeatherAppTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testParse_Succeeds() {
+        /*  toTest.parse("Something that will parse", success: {
+         // do nothing, test will pass
+         }) {
+         // if failure parsing, fail test
+         XCTFail()
+         }*/
+        
+        let expectation2 = expectation(description: "Parsing Succeeds")
+        
+        
+        locationService?.createRequest(qMes: "", strURL: strURL, method: "GET", completionBlock: { (arg0) in
+            expectation2.fulfill()
+            let (output) = arg0
+            print("test case output",output)
+        }, andFailureBlock: { (failure) in
+            XCTFail()
+        })
+        waitForExpectations(timeout: 600.0) { (_) -> Void in
+        }
+        
+    }
+    
     
 }
