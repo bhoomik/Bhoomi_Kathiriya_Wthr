@@ -32,7 +32,7 @@ class AddLocationVC: UIViewController,UIGestureRecognizerDelegate,CLLocationMana
     {
         
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
-
+        
         mapView.delegate = self
         mapView.showsUserLocation = true
       
