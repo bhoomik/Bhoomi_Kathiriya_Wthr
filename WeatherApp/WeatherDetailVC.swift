@@ -30,6 +30,16 @@ extension WeatherDetailVC : LocationView
         }
         print("update weather Info")
     }
+    func startLoading() {
+        self.activityIndicator.show()
+    }
+    
+    func finishLoading()
+    {
+        self.activityIndicator.hide()
+        
+    }
+    
     
 }
 
@@ -38,6 +48,8 @@ class WeatherDetailVC: UIViewController {
 
     let reuseIdentifier = "collectionViewCellId"
     
+    let activityIndicator = ActivityIndicator()
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     var arrTitleImage : NSMutableArray? = NSMutableArray()
@@ -55,6 +67,9 @@ class WeatherDetailVC: UIViewController {
 
     func commonInit()
     {
+        
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.isHidden = true
         locaionPresenter.attachView(view:self)
         
         let dictTemp : NSMutableDictionary = NSMutableDictionary()
