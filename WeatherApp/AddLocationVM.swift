@@ -62,6 +62,49 @@ public class AddLocationVM
         }
 
     }
+    
+    
+    func deleteAllLocationData()
+    {
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        
+        //  print("location city to be compared is",id)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocationInfo")
+      //  fetchRequest.predicate = NSPredicate(format: "city = %@", objLocation.strCityName!)
+        
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context?.fetch(fetchRequest)
+            for data in result!
+            {
+                context?.delete(data)
+               // print(data.value(forKey: "city") as! String)
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
+        /*let resultData = result as! [LocationObject]
+         
+         for object in resultData {
+         moc?.delete(object)
+         }*/
+        
+        do {
+            try context?.save()
+            print("delete saved!")
+        } catch let error as NSError  {
+            print("delete Could not save \(error), \(error.userInfo)")
+        } catch {
+            
+        }
+        
+    }
+    
     func InsertData(objLocation : Location)
     {
         

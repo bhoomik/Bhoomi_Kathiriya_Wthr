@@ -60,6 +60,15 @@ class LocationListVC: UIViewController
     }
 
     
+    @IBAction func btnResetAction()
+    {
+
+        
+        let objAddLocationVM = AddLocationVM()
+        objAddLocationVM.attachView(view: self)
+        objAddLocationVM.deleteAllLocationData()
+        objAddLocationVM.retrieveData()
+    }
     
     // MARK: - Memory Management
     override func didReceiveMemoryWarning() {
