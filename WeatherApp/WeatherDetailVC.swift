@@ -281,7 +281,6 @@ extension WeatherDetailVC:UITableViewDelegate,UITableViewDataSource{
         
         let objWeatherInfo : WeatherInfo = self.arrWeeklyForCast[indexPath.row]
         
-        print("cell for row weathe info",objWeatherInfo.strTempMin)
 
         cell.setupData(objWeatherInfo: objWeatherInfo)
         

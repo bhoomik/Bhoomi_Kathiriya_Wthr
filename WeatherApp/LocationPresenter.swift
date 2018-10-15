@@ -1,6 +1,6 @@
 //
-//  NewsPresenter.swift
-//  Swift_MVP
+//  LocationPresenter.swift
+//  WeatherApp
 //
 //
 
@@ -44,7 +44,7 @@ class LocationPresenter {
             
            
             
-            print("get news method url",strURL)
+            print("get weather method url",strURL)
             
             
             
@@ -179,14 +179,14 @@ class LocationPresenter {
                 var dictWeather : NSMutableDictionary = NSMutableDictionary()
                 dictWeather  = dictTemp.mutableCopy() as! NSMutableDictionary
                 
-                var objWeatherInfo : WeatherInfo = WeatherInfo(strCity: strCity, strCountry: strCountry, dictWeather: dictWeather, strTemp: strTemp, strHumidiy: strHumidity, strRain: strRain, strWind: strWind, strDay: "", strTempMax: "", strTempMin: "")
+                let objWeatherInfo : WeatherInfo = WeatherInfo(strCity: strCity, strCountry: strCountry, dictWeather: dictWeather, strTemp: strTemp, strHumidiy: strHumidity, strRain: strRain, strWind: strWind, strDay: "", strTempMax: "", strTempMin: "")
                 
                 
                 print("dict weather output",dictTemp)
                 
                 
                 
-                  var arrTemp : NSMutableArray?  = NSMutableArray()
+                let arrTemp : NSMutableArray?  = NSMutableArray()
                 
                 //  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
                 
@@ -306,7 +306,7 @@ class LocationPresenter {
                   //  strCity = city
                    // print("city is",strCity)
                     
-                    var timeInterval : TimeInterval?  = self.parseDuration(strTimeInterVal)
+                    let timeInterval : TimeInterval?  = self.parseDuration(strTimeInterVal)
                     
                     let date = Date(timeIntervalSince1970: timeInterval!)
                     
@@ -368,7 +368,7 @@ class LocationPresenter {
                     var dictForecast : NSMutableDictionary = NSMutableDictionary()
                     dictForecast  = dictWeather.mutableCopy() as! NSMutableDictionary
                     
-                    var objWeatherInfo : WeatherInfo = WeatherInfo(strCity: "", strCountry: "", dictWeather: dictForecast, strTemp: "", strHumidiy: "", strRain: "", strWind: "", strDay: strDay, strTempMax: strTempMax, strTempMin: strTempMin)
+                    let objWeatherInfo : WeatherInfo = WeatherInfo(strCity: "", strCountry: "", dictWeather: dictForecast, strTemp: "", strHumidiy: "", strRain: "", strWind: "", strDay: strDay, strTempMax: strTempMax, strTempMin: strTempMin)
                     
                     arrWeeklyForeCast.append(objWeatherInfo)
                     

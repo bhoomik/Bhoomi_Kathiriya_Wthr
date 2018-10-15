@@ -1,6 +1,6 @@
 //
-//  NewsService.swift
-//  Swift_MVP
+//  LocationService.swift
+//
 //
 
 //
@@ -23,7 +23,7 @@ class LocationService {
         request.httpMethod = method
         
         
-        var str  = ""
+       // var str  = ""
         
         
        
@@ -70,20 +70,15 @@ class LocationService {
                         
                         print("retrieved json is",json)
                         
-                        if let value = json as?  NSDictionary
-                        {
-                            
-                            print("object is dict",json)
-                            
-                        }
+                        
                         
                         if json is Dictionary<AnyHashable,Any>
                         {
                             
-                            var jsonResponse = json as! [String: AnyObject]
+                            let jsonResponse = json as! [String: AnyObject]
                             
                             print("Yes, it's a Dictionary")
-                            var dictResponse = json as! NSDictionary
+                            let dictResponse = json as! NSDictionary
                             
                             print("dict response",dictResponse)
                             completionBlock(jsonResponse);
@@ -117,7 +112,6 @@ class LocationService {
             }
             else
             {
-                print("parsing error auto is",error?.localizedDescription)
                 failBlock(error as AnyObject)
                 
                 

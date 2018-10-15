@@ -13,7 +13,6 @@ import Foundation
 	@objc optional func finishLoading()
 
 	
-    @objc optional func setEmptyNews()
     @objc optional func setWeatherInfo(objWeatherInfo : WeatherInfo)
 
     @objc optional func setWeeklyForecastData(arrWeatherInfo: [WeatherInfo])

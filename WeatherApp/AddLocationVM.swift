@@ -24,7 +24,7 @@ public class AddLocationVM
 
     func deleteData(objLocation : Location)
     {
-        self.appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
 
       //  print("location city to be compared is",id)
@@ -72,10 +72,10 @@ public class AddLocationVM
         
         let strLocationId = String(format: "%@,%@",objLocation.strLatitude!,objLocation.strLongitude!)
 
-        var shouldInsertData : Bool?
+        //var shouldInsertData : Bool?
         
-        var isCityExists : Bool = self.checkIfCityExists(id: objLocation.strCityName!)
-        var isCountryExists : Bool = self.checkIfCountryExists(id: objLocation.strCountryName!)
+        let isCityExists : Bool = self.checkIfCityExists(id: objLocation.strCityName!)
+        let isCountryExists : Bool = self.checkIfCountryExists(id: objLocation.strCountryName!)
         
 
         if(isCityExists==true && isCountryExists==true)
@@ -235,7 +235,7 @@ public class AddLocationVM
                 //self.appDelegate!.arrCityList.append(objCity)
 
                 print("arr location temp",arrLocationTemp)
-                print("locationview",locationView)
+              //  print("locationview",locationView)
                 
                 print(data.value(forKey: "city") as! String)
             }

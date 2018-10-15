@@ -15,8 +15,6 @@ class WeatherInfo: NSObject
     
     var strCityName: String?
     var strCountryName : String?
-    var arrEventAssets : NSMutableArray?
-    var arrEventUsers : NSMutableArray?
     var dictWeather : NSMutableDictionary?
     var strLatitude : String?
     var strLongitude : String?

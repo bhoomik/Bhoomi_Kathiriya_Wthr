@@ -20,7 +20,6 @@ class LocationListVC: UIViewController
 
     
     @IBOutlet weak var tblLocationList : UITableView?
- //   private let newsPresenter = NewsPresenter(newsService: NewsService())
     
     override func viewDidLoad()
     {
@@ -32,7 +31,7 @@ class LocationListVC: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var objAddLocationVM = AddLocationVM()
+        let objAddLocationVM = AddLocationVM()
         objAddLocationVM.attachView(view: self)
         objAddLocationVM.retrieveData()
     }
@@ -40,7 +39,6 @@ class LocationListVC: UIViewController
     {
         self.appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-      //  newsPresenter.attachView(view: self)
 
         self.tblLocationList?.tableFooterView = UIView()
         self.locationManager = CLLocationManager()
@@ -83,10 +81,7 @@ class LocationListVC: UIViewController
             
             objVC.objLocation = self.appDelegate?.arrCityList[self.selCityIndex!]
             
-         //   objVC.objAssetTask = self.arrEventList?.object(at: self.selEventIndex!) as? MytaskAssetTask
-            
-          //  objVC.selTemplateIndex = self.selTemplateIndex
-            
+      
             
         }
         
@@ -157,7 +152,7 @@ extension LocationListVC:UITableViewDelegate,UITableViewDataSource{
             
             let objLocation = self.appDelegate?.arrCityList[indexPath.row]
             
-            var objAddLocationVM = AddLocationVM()
+            let objAddLocationVM = AddLocationVM()
             objAddLocationVM.attachView(view: self)
             objAddLocationVM.deleteData(objLocation: objLocation!)
             objAddLocationVM.retrieveData()
@@ -191,8 +186,8 @@ extension LocationListVC : CLLocationManagerDelegate
                 
                 if let placemarks = placemarks, let placemark = placemarks.first {
                   
-                    print("city: ",placemark.locality)
-                    print("country: ",placemark.country)
+                 //   print("city: ",placemark.locality)
+                  //  print("country: ",placemark.country)
                   
                     var strCity : String = ""
                     var strCountry : String = ""
@@ -206,15 +201,15 @@ extension LocationListVC : CLLocationManagerDelegate
                         strCountry = placemark.country!
                     }
                     
-                    let lat = location.coordinate.latitude
-                    let long = location.coordinate.longitude
+                   // let lat = location.coordinate.latitude
+                  //  let long = location.coordinate.longitude
                     
-                    var strLatitude : String = String(format: "%f", location.coordinate.latitude)
+                    let strLatitude : String = String(format: "%f", location.coordinate.latitude)
                     print("latitude is",strLatitude)
-                    var strLongitude : String = String(format: "%f", location.coordinate.longitude)
+                    let strLongitude : String = String(format: "%f", location.coordinate.longitude)
                     print("longitude is",strLongitude)
 
-                    var strLocationId = String(format: "%@,%@",strLatitude,strLongitude)
+                    let strLocationId = String(format: "%@,%@",strLatitude,strLongitude)
 
                     let dictLocation : NSMutableDictionary = NSMutableDictionary()
                     dictLocation.setValue(strCity, forKey: "city")
@@ -225,7 +220,7 @@ extension LocationListVC : CLLocationManagerDelegate
 
                     if(placemark.locality != nil)
                     {
-                        var objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
+                        let objCity : Location = Location(strCity: strCity, strCountry:strCountry, dictLocation: dictLocation, strLatitude: strLatitude, strLongitude: strLongitude, strLocationId: strLocationId)
                         
                         if (self.appDelegate?.arrCityList.contains(where: { $0.strLocationId == strLocationId }))!
                         {
@@ -235,7 +230,7 @@ extension LocationListVC : CLLocationManagerDelegate
                         else
                         {
                             
-                            var objAddLocationVM = AddLocationVM()
+                            let objAddLocationVM = AddLocationVM()
                             objAddLocationVM.attachView(view: self)
                             objAddLocationVM.InsertData(objLocation: objCity)
                             

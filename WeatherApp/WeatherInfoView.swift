@@ -15,13 +15,9 @@ import Foundation
     @objc optional func finishLoading()
     
     
-    @objc optional func setEmptyNews()
-    //@objc optional func setNewsData(news: [News])
     
     @objc optional func setWeatherInfo(objWeatherInfo : WeatherInfo)
     
     
-    //@objc optional func setImageDetail(image:UIImage)
-    //@objc optional func setNewsDetail(news:News)
     
 }
