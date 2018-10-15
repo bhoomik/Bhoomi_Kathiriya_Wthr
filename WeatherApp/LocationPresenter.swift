@@ -186,14 +186,11 @@ class LocationPresenter {
                 
                 
                 
-                let arrTemp : NSMutableArray?  = NSMutableArray()
-                
-                //  arrTemp    = dictTemp.value(forKey: "articles") as? NSMutableArray
                 
                 self.locationView?.setWeatherInfo!(objWeatherInfo: objWeatherInfo)
 
                 
-                print("arrtemp count",arrTemp?.count)
+                //print("arrtemp count",arrTemp?.count)
                 
                 
            

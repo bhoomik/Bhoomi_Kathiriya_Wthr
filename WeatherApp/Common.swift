@@ -8,7 +8,6 @@ import Foundation
 import UIKit
 
 
-let customOrangeColor = UIColor(red: 227.0/255.0, green: 119.0/255.0, blue: 30.0/255.0, alpha: 1.0)
 
 
 let kBaseURL = "http://api.openweathermap.org/data/2.5"
@@ -85,20 +84,6 @@ extension UIViewController{
     }
 }
 
-extension UIColor{
-    /// EZSE: init method with hex string and alpha(default: 1)
-    public convenience init?(hexString: String, alpha: CGFloat = 1.0) {
-        var formatted = hexString.replacingOccurrences(of: "0x", with: "")
-        formatted = formatted.replacingOccurrences(of: "#", with: "")
-        if let hex = Int(formatted, radix: 16) {
-            let red = CGFloat(CGFloat((hex & 0xFF0000) >> 16)/255.0)
-            let green = CGFloat(CGFloat((hex & 0x00FF00) >> 8)/255.0)
-            let blue = CGFloat(CGFloat((hex & 0x0000FF) >> 0)/255.0)
-            self.init(red: red, green: green, blue: blue, alpha: alpha)        } else {
-            return nil
-        }
-    }
-}
 
 
 
