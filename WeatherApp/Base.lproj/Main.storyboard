@@ -280,7 +280,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_BG.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CLg-0A-7ln">
-                                <rect key="frame" x="0.0" y="64" width="375" height="611"/>
+                                <rect key="frame" x="-8" y="64" width="391" height="611"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dkb-EG-Xgj">
                                 <rect key="frame" x="15" y="140" width="345" height="139"/>
@@ -316,8 +316,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-gN-Sc5">
-                                                    <rect key="frame" x="0.0" y="75" width="100" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-gN-Sc5">
+                                                    <rect key="frame" x="0.0" y="75" width="100" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -362,7 +362,7 @@
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="bottom" secondItem="CLg-0A-7ln" secondAttribute="bottomMargin" id="0HW-1t-xIM"/>
                             <constraint firstItem="dkb-EG-Xgj" firstAttribute="centerX" secondItem="QLC-xW-nsF" secondAttribute="centerX" id="0gV-Dx-ser"/>
                             <constraint firstItem="1KP-6N-nbb" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" id="1jJ-e7-ODq"/>
-                            <constraint firstItem="CLg-0A-7ln" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" id="3aC-HF-tGa"/>
+                            <constraint firstItem="CLg-0A-7ln" firstAttribute="leadingMargin" secondItem="QLC-xW-nsF" secondAttribute="leading" id="3aC-HF-tGa"/>
                             <constraint firstItem="S3Q-Pr-UXV" firstAttribute="leading" secondItem="cSZ-pI-U3u" secondAttribute="leading" id="4uT-34-mMF"/>
                             <constraint firstItem="dkb-EG-Xgj" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" constant="15" id="64r-U6-Fau"/>
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="1KP-6N-nbb" secondAttribute="trailing" id="FRg-UU-KwZ"/>
@@ -371,7 +371,7 @@
                             <constraint firstItem="dkb-EG-Xgj" firstAttribute="top" secondItem="QLC-xW-nsF" secondAttribute="top" constant="120" id="VWA-hi-Sfc"/>
                             <constraint firstItem="zwl-9g-s3t" firstAttribute="bottom" secondItem="S3Q-Pr-UXV" secondAttribute="bottom" id="Z26-vx-QFN"/>
                             <constraint firstItem="1KP-6N-nbb" firstAttribute="top" secondItem="zwl-9g-s3t" secondAttribute="bottom" constant="25" id="Zx5-Pf-QUr"/>
-                            <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="CLg-0A-7ln" secondAttribute="trailing" id="cYf-Rk-Y69"/>
+                            <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="CLg-0A-7ln" secondAttribute="trailingMargin" id="cYf-Rk-Y69"/>
                             <constraint firstItem="QLC-xW-nsF" firstAttribute="trailing" secondItem="zwl-9g-s3t" secondAttribute="trailing" id="ggP-N2-frb"/>
                             <constraint firstItem="zwl-9g-s3t" firstAttribute="leading" secondItem="QLC-xW-nsF" secondAttribute="leading" id="gqw-lF-3Ih"/>
                             <constraint firstAttribute="trailing" secondItem="S3Q-Pr-UXV" secondAttribute="trailing" id="hgT-H4-KHw"/>
