@@ -55,8 +55,13 @@ class WeatherDetailVC: UIViewController {
     var arrTitleImage : NSMutableArray? = NSMutableArray()
     var objLocation : Location?
     var objWeatherInfo : WeatherInfo?
+    
+    var strUnit : String  = "Metric"
     @IBOutlet weak var lblLocation : UILabel?
     
+    @IBOutlet weak var btnCelcisus : UIButton?
+    @IBOutlet weak var btnFaherenhit : UIButton?
+
     private let locaionPresenter = LocationPresenter(locationService: LocationService())
 
     override func viewDidLoad() {
@@ -67,6 +72,29 @@ class WeatherDetailVC: UIViewController {
 
     func commonInit()
     {
+        
+        if(UserDefaults.standard.object(forKey: "Unit") != nil)
+        {
+            self.strUnit = UserDefaults.standard.object(forKey: "Unit") as! String
+            if(self.strUnit == "Metric")
+            {
+                btnFaherenhit?.isSelected = false
+                btnCelcisus?.isSelected = true
+            }
+            else
+            {
+                btnFaherenhit?.isSelected = true
+                btnCelcisus?.isSelected = false
+                
+            }
+            
+        }
+        else
+        {
+            btnFaherenhit?.isSelected = false
+            btnCelcisus?.isSelected = true
+            
+        }
         
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.isHidden = true
@@ -101,7 +129,8 @@ class WeatherDetailVC: UIViewController {
 
         self.collectionView.layer.masksToBounds = true
         self.collectionView.layer.cornerRadius = 10
-        locaionPresenter.getLocationData(objLocation: self.objLocation!)
+        locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
+        
         
     }
     
@@ -119,6 +148,31 @@ class WeatherDetailVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func btnCelciusAction()
+    {
+        self.strUnit  = "Metric"
+        UserDefaults.standard.set(self.strUnit, forKey: "Unit")
+        UserDefaults.standard.synchronize()
+        self.btnCelcisus?.isSelected = true
+        self.btnFaherenhit?.isSelected = false
+        locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
+
+        
+    }
+    
+    @IBAction func btnFahrenhitAction()
+    {
+        self.btnFaherenhit?.isSelected = true
+        self.btnCelcisus?.isSelected = false
+        self.strUnit  = "Imperial"
+        UserDefaults.standard.set(self.strUnit, forKey: "Unit")
+        UserDefaults.standard.synchronize()
+        
+        locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
+
+
+    }
     
     /*
     // MARK: - Navigation

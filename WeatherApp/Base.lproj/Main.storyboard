@@ -255,18 +255,40 @@
                                             <action selector="btnBackAction" destination="V19-2w-Ceh" eventType="touchUpInside" id="MKt-Hi-tE0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nN-bp-cJk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2E-LD-Nst">
+                                        <rect key="frame" x="300" y="9.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="4JQ-V0-lOh"/>
+                                            <constraint firstAttribute="height" constant="25" id="s0J-LV-XZg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="C">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.92837173559999997" green="1" blue="0.016072088679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnCelciusAction" destination="V19-2w-Ceh" eventType="touchUpInside" id="hl6-la-ymv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nN-bp-cJk">
                                         <rect key="frame" x="335" y="10" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="9O7-1f-fAd"/>
                                             <constraint firstAttribute="width" constant="25" id="vNc-Sa-RIQ"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="\">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="F">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.92837173559999997" green="1" blue="0.016072088679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnAddLocationAction" destination="6l2-Ln-HsE" eventType="touchUpInside" id="rAC-yZ-1lN"/>
+                                            <action selector="btnFahrenhitAction" destination="V19-2w-Ceh" eventType="touchUpInside" id="zkQ-yy-tVC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -276,7 +298,9 @@
                                     <constraint firstItem="tuz-D9-xb0" firstAttribute="leading" secondItem="zwl-9g-s3t" secondAttribute="leading" constant="15" id="IuE-Z6-RDp"/>
                                     <constraint firstAttribute="height" constant="44" id="ayk-oF-I8h"/>
                                     <constraint firstItem="tuz-D9-xb0" firstAttribute="centerY" secondItem="zwl-9g-s3t" secondAttribute="centerY" id="bHd-a7-cUI"/>
+                                    <constraint firstItem="w2E-LD-Nst" firstAttribute="centerY" secondItem="zwl-9g-s3t" secondAttribute="centerY" id="cNg-Ga-OqJ"/>
                                     <constraint firstItem="5nN-bp-cJk" firstAttribute="centerY" secondItem="zwl-9g-s3t" secondAttribute="centerY" id="gzG-U3-Oht"/>
+                                    <constraint firstItem="5nN-bp-cJk" firstAttribute="leading" secondItem="w2E-LD-Nst" secondAttribute="trailing" constant="10" id="kFu-aw-kTP"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_BG.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CLg-0A-7ln">
@@ -381,6 +405,8 @@
                         <viewLayoutGuide key="safeArea" id="QLC-xW-nsF"/>
                     </view>
                     <connections>
+                        <outlet property="btnCelcisus" destination="w2E-LD-Nst" id="lex-pz-zc8"/>
+                        <outlet property="btnFaherenhit" destination="5nN-bp-cJk" id="p5B-Vo-63A"/>
                         <outlet property="collectionView" destination="dkb-EG-Xgj" id="AiD-dC-T3B"/>
                         <outlet property="lblLocation" destination="1KP-6N-nbb" id="ghn-VM-TRz"/>
                     </connections>

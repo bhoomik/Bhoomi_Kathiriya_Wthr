@@ -27,7 +27,7 @@ class LocationPresenter {
 	
 	
 	
-    func getLocationData(objLocation : Location) {
+    func getLocationData(objLocation : Location,strUnit:String) {
         
         
             
@@ -38,7 +38,7 @@ class LocationPresenter {
             self.locationView?.startLoading!()
             
             
-            let strURL = String(format: "%@?lat=%@&lon=%@&appid=%@&units=metric",kBaseURL,objLocation.strLatitude!,objLocation.strLongitude!,kAPIKey)
+            let strURL = String(format: "%@?lat=%@&lon=%@&appid=%@&units=%@",kBaseURL,objLocation.strLatitude!,objLocation.strLongitude!,kAPIKey,strUnit)
             
             
             
@@ -86,14 +86,23 @@ class LocationPresenter {
                     
                     if let humidity = dictMain.value(forKey: "humidity") as? NSNumber
                     {
-                        strHumidity = String(format: "%@",humidity)
+                        strHumidity = String(format: "%@ %%",humidity)
                         print("humidity is",strHumidity)
                     }
                     if let temp = dictMain.value(forKey: "temp") as? NSNumber
                     {
 
                         print("temp1 is",temp)
-                        strTemp = String(format: "%@",temp)
+                        if(strUnit == "Metric")
+                        {
+                        strTemp = String(format: "%@ C",temp)
+                        }
+                        else
+                        {
+                            strTemp = String(format: "%@ F",temp)
+
+                        }
+                            
                         print("temp is",strTemp)
                     }
 
@@ -133,7 +142,15 @@ class LocationPresenter {
                         print("temp is",strTemp)
                     }
                     
-                    strWind = String(format: "%@ at %@",strDegree,strSpeed)
+                    if(strUnit == "Metric")
+                    {
+                    strWind = String(format: "%@ at %@ km/h",strDegree,strSpeed)
+                    }
+                    else
+                    {
+                        strWind = String(format: "%@ at %@ mph",strDegree,strSpeed)
+
+                    }
                     print("wind info",strWind)
                 }
                 
