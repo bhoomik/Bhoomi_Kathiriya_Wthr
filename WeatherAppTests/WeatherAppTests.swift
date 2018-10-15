@@ -14,7 +14,7 @@ class WeatherAppTests: XCTestCase {
     private let locaionPresenter = LocationPresenter(locationService: LocationService())
     private let locationService: LocationService? = LocationService()
 
-    let strURL = String(format: "%@?lat=%@&lon=%@&appid=%@&units=metric",kBaseURL,"-33.863400","151.211000",kAPIKey)
+    let strURL = String(format: "%@/weather?lat=%@&lon=%@&appid=%@&units=metric",kBaseURL,"-33.863400","151.211000",kAPIKey)
     
     override func setUp() {
         super.setUp()

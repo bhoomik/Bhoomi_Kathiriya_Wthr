@@ -30,6 +30,19 @@ extension WeatherDetailVC : LocationView
         }
         print("update weather Info")
     }
+    
+func setWeeklyForecastData(arrWeatherInfo: [WeatherInfo])
+{
+        print("set weekly data",arrWeatherInfo)
+      //  self.appDelegate?.arrCityList.removeAll()
+       // self.appDelegate?.arrCityList = location
+    self.arrWeeklyForCast.removeAll()
+    self.arrWeeklyForCast = arrWeatherInfo
+        DispatchQueue.main.async { () -> Void in
+
+        self.tblWeeklyForeCast?.reloadData()
+        }
+    }
     func startLoading() {
         self.activityIndicator.show()
     }
@@ -55,7 +68,9 @@ class WeatherDetailVC: UIViewController {
     var arrTitleImage : NSMutableArray? = NSMutableArray()
     var objLocation : Location?
     var objWeatherInfo : WeatherInfo?
-    
+    var arrWeeklyForCast = [WeatherInfo]()
+    @IBOutlet weak var tblWeeklyForeCast: UITableView!
+
     var strUnit : String  = "Metric"
     @IBOutlet weak var lblLocation : UILabel?
     
@@ -72,7 +87,7 @@ class WeatherDetailVC: UIViewController {
 
     func commonInit()
     {
-        
+        tblWeeklyForeCast.tableFooterView=UIView()
         if(UserDefaults.standard.object(forKey: "Unit") != nil)
         {
             self.strUnit = UserDefaults.standard.object(forKey: "Unit") as! String
@@ -95,7 +110,8 @@ class WeatherDetailVC: UIViewController {
             btnCelcisus?.isSelected = true
             
         }
-        
+        self.tblWeeklyForeCast.layer.masksToBounds = true
+        self.tblWeeklyForeCast.layer.cornerRadius = 10
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.isHidden = true
         locaionPresenter.attachView(view:self)
@@ -130,7 +146,8 @@ class WeatherDetailVC: UIViewController {
         self.collectionView.layer.masksToBounds = true
         self.collectionView.layer.cornerRadius = 10
         locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
-        
+        locaionPresenter.getWeeklyForecastData(objLocation: self.objLocation!, strUnit: self.strUnit)
+
         
     }
     
@@ -157,6 +174,7 @@ class WeatherDetailVC: UIViewController {
         self.btnCelcisus?.isSelected = true
         self.btnFaherenhit?.isSelected = false
         locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
+        locaionPresenter.getWeeklyForecastData(objLocation: self.objLocation!, strUnit: self.strUnit)
 
         
     }
@@ -170,6 +188,7 @@ class WeatherDetailVC: UIViewController {
         UserDefaults.standard.synchronize()
         
         locaionPresenter.getLocationData(objLocation: self.objLocation!, strUnit: self.strUnit)
+        locaionPresenter.getWeeklyForecastData(objLocation: self.objLocation!, strUnit: self.strUnit)
 
 
     }
@@ -237,4 +256,46 @@ extension WeatherDetailVC : UICollectionViewDataSource
     }
 
     
+}
+
+
+extension WeatherDetailVC:UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        
+        return self.arrWeeklyForCast.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        
+        
+        
+        let cell : WeeklyForecastCell = tableView.dequeueReusableCell(withIdentifier: "WeeklyForecastCell") as! WeeklyForecastCell
+        
+        
+        let objWeatherInfo : WeatherInfo = self.arrWeeklyForCast[indexPath.row]
+        
+        print("cell for row weathe info",objWeatherInfo.strTempMin)
+
+        cell.setupData(objWeatherInfo: objWeatherInfo)
+        
+        
+        
+        return cell
+        
+        
+        
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+            }
 }
